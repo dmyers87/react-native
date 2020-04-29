@@ -77,6 +77,7 @@ RCT_EXPORT_MODULE()
     if (useWifiOnly) {
       configuration.allowsCellularAccess = ![useWifiOnly boolValue];
     }
+    [configuration setHTTPMaximumConnectionsPerHost:6];
     [configuration setHTTPShouldSetCookies:YES];
     [configuration setHTTPCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     [configuration setHTTPCookieStorage:[NSHTTPCookieStorage sharedHTTPCookieStorage]];
