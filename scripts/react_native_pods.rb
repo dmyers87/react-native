@@ -58,23 +58,21 @@ def use_react_native! (options={})
 end
 
 def use_flipper!(versions = {})
-  versions['Flipper'] ||= '~> 0.33.1'
-  versions['DoubleConversion'] ||= '1.1.7'
-  versions['Flipper-Folly'] ||= '~> 2.1'
+  versions['Flipper'] ||= '~> 0.41.1'
+  versions['Flipper-DoubleConversion'] ||= '1.1.7'
+  versions['Flipper-Folly'] ||= '~> 2.2'
   versions['Flipper-Glog'] ||= '0.3.6'
   versions['Flipper-PeerTalk'] ||= '~> 0.0.4'
-  versions['Flipper-RSocket'] ||= '~> 1.0'
-
+  versions['Flipper-RSocket'] ||= '~> 1.1'
   pod 'FlipperKit', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitLayoutPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/SKIOSNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitUserDefaultsPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitReactPlugin', versions['Flipper'], :configuration => 'Debug'
-
   # List all transitive dependencies for FlipperKit pods
   # to avoid them being linked in Release builds
   pod 'Flipper', versions['Flipper'], :configuration => 'Debug'
-  pod 'Flipper-DoubleConversion', versions['DoubleConversion'], :configuration => 'Debug'
+  pod 'Flipper-DoubleConversion', versions['Flipper-DoubleConversion'], :configuration => 'Debug'
   pod 'Flipper-Folly', versions['Flipper-Folly'], :configuration => 'Debug'
   pod 'Flipper-Glog', versions['Flipper-Glog'], :configuration => 'Debug'
   pod 'Flipper-PeerTalk', versions['Flipper-PeerTalk'], :configuration => 'Debug'
