@@ -383,9 +383,6 @@ public class ReactEditText extends AppCompatEditText {
   @Override
   public void setInputType(int type) {
     Typeface tf = super.getTypeface();
-    // Input type password defaults to monospace font, so we need to re-apply the font
-    super.setTypeface(tf);
-
     int inputType = type;
 
     // Set InputType to TYPE_CLASS_TEXT (the default one for Android) to fix a crash on Xiaomi
@@ -401,6 +398,9 @@ public class ReactEditText extends AppCompatEditText {
 
     super.setInputType(inputType);
     mStagedInputType = inputType;
+    // Input type password defaults to monospace font, so we need to re-apply the font
+    // after super.setInputType(inputType) is called
+    super.setTypeface(tf);
 
     /**
      * If set forces multiline on input, because of a restriction on Android source that enables
